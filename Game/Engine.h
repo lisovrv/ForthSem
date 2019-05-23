@@ -6,22 +6,30 @@
 #include <math.h>
 #include <iostream>
 
-#include "Player.h"
+#include <vector>
+#include <list>
+
+#include "Object.h"
+#include "Hero.h"
+#include "Zombie.h"
+#include "Health_bar.h"
+#include "Menu.h"
 
 using namespace sf;
 
 class Engine
 {
 public:
+///----------------------------FUNCTIONS-----------------------
+
     Engine();
-    void Init();
+    //bool Init();
+    //void gameRunning();
 
     void My_input();
     void My_draw();
     void My_logic();
-
-    unsigned int X_size;
-    unsigned int Y_size;
+///----------------------------WINDOW-----------------------
 
     sf::RenderWindow window;
 
@@ -29,20 +37,30 @@ public:
     sf::Sprite background;
     sf::Clock clock;
     float CurrentFrame;
-    Player player;
-    Player player2;
     Music music;
-
-    Image quest_image;
-    Texture quest_texture;
-    Sprite s_quest;
-
-    Image little_image;
-    Texture little_texture;
-    Sprite s_quest2;
+///----------------------------MOUSE-----------------------
 
     bool isMove;
+    float dX;
+    float dY;
 
+///----------------------------OBJECTS-----------------------
+    Hero sonic_hero;
+    Object little_table;
+    Health_bar bar;
+
+    std::list<Hero*>  sonic_heroes;
+    std::list<Hero*>::iterator it_hero;
+
+    std::list<Zombie*>  zombies;
+    std::list<Zombie*>::iterator it;
+///----------------------------MENU-----------------------
+    bool stop_game;
+    float number_of_zomb;
+    int number_of_heroes;
+
+    SoundBuffer buffer;
+    Sound sound;
 
 };
 

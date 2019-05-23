@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 project(My_Game)
 
 set(EXECUTABLE_NAME "My_Game")
-add_executable(${EXECUTABLE_NAME} main.cpp Engine.cpp Player.cpp Player.h)
+add_executable(${EXECUTABLE_NAME} main.cpp Engine.cpp Object.cpp Hero.cpp Zombie.cpp Zombie.h Health_bar.cpp Health_bar.h Menu.cpp Menu.h)
 
 
 # Detect and add SFML

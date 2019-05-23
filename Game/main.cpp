@@ -1,9 +1,29 @@
 #include "Engine.h"
 
-int main()
+bool Init()
 {
     Engine engine;
-    engine.Init();
+    while(engine.window.isOpen())
+    {
+        if (Keyboard::isKeyPressed(Keyboard::Tab)) { return true; }
+        engine.My_draw();
+        engine.My_input();
+        engine.My_logic();
+    }
+}
+
+void gameRunning()
+{
+    if(Init())
+    {
+        gameRunning();
+    }
+}
+
+
+int main()
+{
+    gameRunning();
     return 0;
 }
 
